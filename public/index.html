@@ -81,7 +81,7 @@
 
     .game-subtitle {
       font-size: 14px;
-      color: var(--muted);
+      color: #6c7ba0;
       letter-spacing: 4px;
       text-transform: uppercase;
       margin-top: 4px;
@@ -103,7 +103,7 @@
       font-weight: 800;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #6c7ba0;
       margin-bottom: 6px;
     }
 
@@ -154,11 +154,11 @@
     .btn-primary:hover { box-shadow: 0 8px 30px rgba(255,77,109,0.6); }
 
     .btn-secondary {
-      background: var(--bg2);
-      color: var(--text);
-      border: 2px solid var(--border);
+      background: #131929;
+      color: #e8eaf6;
+      border: 2px solid #2a3654;
     }
-    .btn-secondary:hover { border-color: var(--accent2); }
+    .btn-secondary:hover { border-color: #4cc9f0; }
 
     .btn-gold {
       background: linear-gradient(135deg, #f9c74f, #f4a261);
@@ -173,14 +173,14 @@
       align-items: center;
       gap: 10px;
       margin: 18px 0;
-      color: var(--muted);
+      color: #6c7ba0;
       font-size: 12px;
     }
     .divider::before, .divider::after {
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--border);
+      background: #2a3654;
     }
 
     .join-row {
@@ -239,7 +239,7 @@
       font-weight: 800;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #6c7ba0;
       margin-bottom: 12px;
     }
 
@@ -256,7 +256,7 @@
 
     .room-code-hint {
       text-align: center;
-      color: var(--muted);
+      color: #6c7ba0;
       font-size: 13px;
       margin-top: 4px;
     }
@@ -336,23 +336,23 @@
       border-bottom: 1px solid var(--border);
     }
     .settings-row:last-child { border-bottom: none; padding-bottom: 0; }
-    .settings-label { font-weight: 700; color: var(--muted); font-size: 13px; }
+    .settings-label { font-weight: 700; color: #6c7ba0; font-size: 13px; }
     .settings-options { display: flex; gap: 6px; }
 
     .opt-btn {
       padding: 5px 12px;
-      background: var(--bg2);
-      border: 1.5px solid var(--border);
+      background: #131929;
+      border: 1.5px solid #2a3654;
       border-radius: 6px;
-      color: var(--muted);
+      color: #6c7ba0;
       font-family: 'Nunito', sans-serif;
       font-size: 12px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.15s;
     }
-    .opt-btn:hover { border-color: var(--accent2); color: var(--text); }
-    .opt-btn.active { background: var(--accent2); border-color: var(--accent2); color: #0b0f1a; }
+    .opt-btn:hover { border-color: #4cc9f0; color: #e8eaf6; }
+    .opt-btn.active { background: #4cc9f0; border-color: #4cc9f0; color: #0b0f1a; }
     .opt-btn:disabled { opacity: 0.3; cursor: default; }
 
     /* Chat in lobby */
@@ -384,6 +384,7 @@
     .chat-msg {
       font-size: 12px;
       line-height: 1.4;
+      color: #e8eaf6;
       animation: fadeIn 0.2s ease;
     }
     .chat-msg .chat-author {
@@ -403,17 +404,17 @@
     }
     .chat-send {
       padding: 8px 12px;
-      background: var(--border);
+      background: #2a3654;
       border: none;
       border-radius: 8px;
-      color: var(--text);
+      color: #e8eaf6;
       font-family: 'Nunito', sans-serif;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
       transition: background 0.15s;
     }
-    .chat-send:hover { background: var(--accent2); color: #0b0f1a; }
+    .chat-send:hover { background: #4cc9f0; color: #0b0f1a; }
 
     /* ═══ COUNTDOWN SCREEN ═══ */
     #screen-countdown {
@@ -472,13 +473,13 @@
 
     .hud-timer {
       background: rgba(11,15,26,0.85);
-      border: 1.5px solid var(--border);
+      border: 1.5px solid #2a3654;
       border-radius: 10px;
       padding: 8px 18px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 28px;
       font-weight: 700;
-      color: var(--text);
+      color: #e8eaf6;
       backdrop-filter: blur(4px);
       transition: color 0.3s;
     }
@@ -586,8 +587,8 @@
     }
 
     .result-info { flex: 1; }
-    .result-name { font-weight: 800; font-size: 16px; }
-    .result-stat { font-size: 12px; color: var(--muted); margin-top: 1px; }
+    .result-name { font-weight: 800; font-size: 16px; color: #e8eaf6; }
+    .result-stat { font-size: 12px; color: #6c7ba0; margin-top: 1px; }
 
     .result-status {
       font-size: 24px;
@@ -603,7 +604,7 @@
     .controls-hint {
       text-align: center;
       font-size: 12px;
-      color: var(--muted);
+      color: #6c7ba0;
       margin-top: 8px;
     }
 
@@ -672,7 +673,7 @@
       bottom: 8px;
       left: 10px;
       font-size: 11px;
-      color: var(--muted);
+      color: #6c7ba0;
       font-family: 'JetBrains Mono', monospace;
       pointer-events: none;
       z-index: 50;
@@ -742,7 +743,7 @@
 <!-- ═══════════ SCREEN: LOBBY ═══════════ -->
 <div class="screen" id="screen-lobby">
   <div style="text-align:center; margin-bottom:12px; animation: slideDown 0.4s ease;">
-    <div style="font-family:'Boogaloo',cursive; font-size:38px; color:var(--text);">Waiting Room</div>
+    <div style="font-family:'Boogaloo',cursive; font-size:38px; color:#e8eaf6;">Waiting Room</div>
   </div>
 
   <div class="lobby-container">
@@ -757,7 +758,7 @@
 
       <!-- Players -->
       <div class="card">
-        <div class="card-title">Players <span id="playerCountBadge" style="color:var(--text);">0/4</span></div>
+        <div class="card-title">Players <span id="playerCountBadge" style="color:#e8eaf6;">0/4</span></div>
         <div class="player-slots" id="playerSlots"></div>
       </div>
 
@@ -795,7 +796,7 @@
 
     <!-- Chat -->
     <div class="lobby-chat">
-      <div class="card-title" style="color:var(--muted); font-size:11px; font-weight:800; letter-spacing:3px; text-transform:uppercase;">Chat</div>
+      <div class="card-title" style="color:#6c7ba0; font-size:11px; font-weight:800; letter-spacing:3px; text-transform:uppercase;">Chat</div>
       <div class="chat-messages" id="lobbyChatMessages"></div>
       <div class="chat-input-row">
         <input type="text" id="lobbyChatInput" placeholder="Say something..." maxlength="80" autocomplete="off" />
@@ -808,7 +809,7 @@
 <!-- ═══════════ SCREEN: COUNTDOWN ═══════════ -->
 <div class="screen" id="screen-countdown">
   <div style="text-align:center;">
-    <div style="font-size:18px; color:var(--muted); font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:10px;">Game starting in</div>
+    <div style="font-size:18px; color:#6c7ba0; font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:10px;">Game starting in</div>
     <div class="countdown-number" id="countdownNum">3</div>
   </div>
 </div>
@@ -825,9 +826,9 @@
         <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; margin-bottom:2px;">IT!</div>
         <div class="hud-it-name" id="hudItName">—</div>
       </div>
-      <div id="hudYouAreIt" style="display:none; background:rgba(255,0,56,0.2); border:1.5px solid var(--tag-red); border-radius:10px; padding:8px 16px; text-align:center; backdrop-filter:blur(4px); animation: itPulse 1s ease infinite alternate;">
+      <div id="hudYouAreIt" style="display:none; background:rgba(255,0,56,0.2); border:1.5px solid #ff0038; border-radius:10px; padding:8px 16px; text-align:center; backdrop-filter:blur(4px); animation: itPulse 1s ease infinite alternate;">
         <div style="font-size:10px; letter-spacing:2px; text-transform:uppercase; color:#ff9999;">YOU ARE</div>
-        <div style="font-family:'Boogaloo',cursive; font-size:28px; color:var(--tag-red);">IT!</div>
+        <div style="font-family:'Boogaloo',cursive; font-size:28px; color:#ff0038;">IT!</div>
       </div>
     </div>
 
@@ -1054,7 +1055,8 @@ function initSocket() {
   });
 
   socket.on('gameStart', ({ mapIndex }) => {
-    if (roomData) roomData.mapIndex = mapIndex;
+    if (!roomData) roomData = {};
+    roomData.mapIndex = mapIndex;
     prevGameState = null;
     currGameState = null;
     showScreen('game');
@@ -1164,7 +1166,7 @@ function updateLobbyUI() {
       div.className = 'player-slot empty';
       div.innerHTML = `
         <div class="player-avatar" style="background:#2a3654;"></div>
-        <div class="player-info"><div class="player-name" style="color:var(--muted);">Waiting...</div></div>
+        <div class="player-info"><div class="player-name" style="color:#6c7ba0;">Waiting...</div></div>
       `;
     }
     slotsEl.appendChild(div);
@@ -1318,8 +1320,8 @@ function getInterpolatedState() {
 let animTime = 0;
 
 function renderGame(timestamp) {
+  requestAnimationFrame(renderGame); // ALWAYS requeue — never let the loop die
   if (!document.getElementById('screen-game').classList.contains('active')) return;
-  requestAnimationFrame(renderGame);
 
   animTime = timestamp;
   const mapIdx = roomData?.mapIndex ?? 0;
