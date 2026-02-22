@@ -1071,11 +1071,16 @@ function predictLocalPlayer(dt) {
   jumpEdge = false; // always consume after checking
 
   // ── X movement + platform collision ──
+  // Save Y before moving in X. The X-overlap check uses prevY so that a
+  // player standing ON TOP of a platform (whose feet are at plat.y) doesn't
+  // falsely get pushed sideways when walking along the surface.
+  const prevY = localPlayer.y;
   localPlayer.x += localPlayer.vx * dt;
   localPlayer.x = Math.max(0, Math.min(MAP_W - PLAYER_W, localPlayer.x));
 
   for (const plat of map.platforms) {
-    if (!aabbOverlapC(localPlayer.x, localPlayer.y, PLAYER_W, PLAYER_H, plat.x, plat.y, plat.w, plat.h)) continue;
+    // Use prevY for X-pass — stops walking players getting pushed off edges
+    if (!aabbOverlapC(localPlayer.x, prevY, PLAYER_W, PLAYER_H, plat.x, plat.y, plat.w, plat.h)) continue;
     const overL = (localPlayer.x + PLAYER_W) - plat.x;
     const overR = (plat.x + plat.w) - localPlayer.x;
     if (overL < overR) { localPlayer.x = plat.x - PLAYER_W; }
