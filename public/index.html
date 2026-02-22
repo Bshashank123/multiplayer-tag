@@ -1053,9 +1053,13 @@ function predictLocalPlayer(dt) {
   } else if (keys.right && !keys.left) {
     localPlayer.vx = MOVE_SPEED_C;
   } else {
-    // Friction (matches server's 0.82 factor per tick)
-    // At 60fps this is equivalent to server's per-tick friction
-    localPlayer.vx *= 0.82;
+    // Frame-rate independent friction:
+    // Server applies 0.82 multiplier once per 60Hz tick (every 1/60 s).
+    // We must scale this to actual frame dt so friction is identical
+    // regardless of whether the client runs at 30fps, 60fps, or 144fps.
+    // Formula: perFrameFactor = 0.82 ^ (dt / (1/60))
+    const frictionFactor = Math.pow(0.82, dt * 60);
+    localPlayer.vx *= frictionFactor;
     if (Math.abs(localPlayer.vx) < 2) localPlayer.vx = 0;
   }
 
@@ -1138,28 +1142,23 @@ function reconcileLocalPlayer(serverMe) {
   const dx = Math.abs(localPlayer.x - serverMe.x);
   const dy = Math.abs(localPlayer.y - serverMe.y);
 
-  if (dx > 80 || dy > 80) {
-    // Hard snap — major desync (teleporter, respawn, etc.)
-    localPlayer.x  = serverMe.x;
-    localPlayer.y  = serverMe.y;
-    localPlayer.vx = serverMe.vx;
-    localPlayer.vy = serverMe.vy;
+  if (dx > 120 || dy > 120) {
+    // Hard snap — major desync only (teleporter, respawn, death)
+    // This should be very rare during normal gameplay
+    localPlayer.x        = serverMe.x;
+    localPlayer.y        = serverMe.y;
+    localPlayer.vx       = serverMe.vx;
+    localPlayer.vy       = serverMe.vy;
     localPlayer.onGround = serverMe.onGround;
-  } else if (dx > 20 || dy > 20) {
-    // Smooth correction — gently nudge toward server truth
-    // 0.25 blend per frame = fully corrected in ~5 frames (~83ms)
-    localPlayer.x += (serverMe.x - localPlayer.x) * 0.25;
-    localPlayer.y += (serverMe.y - localPlayer.y) * 0.25;
-    // Also blend velocity so movement feels continuous after correction
-    localPlayer.vx += (serverMe.vx - localPlayer.vx) * 0.25;
-    localPlayer.vy += (serverMe.vy - localPlayer.vy) * 0.25;
   }
-  // < 20px: trust local prediction entirely — no correction, no jitter
+  // For ALL other cases (< 120px error): fully trust local prediction.
+  // The client physics exactly mirrors the server, so normal drift stays
+  // well under 10px. Anything under 120px is just normal floating-point
+  // rounding + timing jitter — DO NOT blend it or you get constant jitter.
 
-  // Always sync authoritative game-logic fields we can't predict locally
+  // Sync only game-logic fields we cannot predict locally
   localPlayer.isIt        = serverMe.isIt;
   localPlayer.tagCooldown = serverMe.tagCooldown;
-  // NOTE: intentionally NOT syncing onGround here — see doc above
 }
 
 // ══════════════════════════════════════════════════
