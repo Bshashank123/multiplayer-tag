@@ -1093,28 +1093,28 @@ function predictLocalPlayer(dt) {
   localPlayer.y += localPlayer.vy * dt;
   localPlayer.onGround = false;
 
+  // Find the single shallowest Y-overlap to resolve.
+  // Resolving ALL overlapping platforms in sequence causes the player to
+  // get pushed through one platform into another (the teleport-to-ground bug).
+  let bestPlat = null;
+  let bestOverlap = Infinity;
   for (const plat of map.platforms) {
     if (!aabbOverlapC(localPlayer.x, localPlayer.y, PLAYER_W, PLAYER_H, plat.x, plat.y, plat.w, plat.h)) continue;
     const overT = (localPlayer.y + PLAYER_H) - plat.y;
     const overB = (plat.y + plat.h) - localPlayer.y;
+    const minOver = Math.min(overT, overB);
+    if (minOver < bestOverlap) { bestOverlap = minOver; bestPlat = plat; }
+  }
+  if (bestPlat) {
+    const overT = (localPlayer.y + PLAYER_H) - bestPlat.y;
+    const overB = (bestPlat.y + bestPlat.h) - localPlayer.y;
     if (overT <= overB + 1) {
-      localPlayer.y = plat.y - PLAYER_H;
+      localPlayer.y = bestPlat.y - PLAYER_H;
       localPlayer.vy = 0;
       localPlayer.onGround = true;
     } else {
-      localPlayer.y = plat.y + plat.h;
+      localPlayer.y = bestPlat.y + bestPlat.h;
       localPlayer.vy = Math.abs(localPlayer.vy) * 0.3;
-    }
-  }
-
-  // ── Bounce pads ──
-  for (const pad of map.bouncePads) {
-    if (aabbOverlapC(localPlayer.x, localPlayer.y, PLAYER_W, PLAYER_H, pad.x, pad.y, pad.w, pad.h)) {
-      if (localPlayer.vy >= 0) {
-        localPlayer.y = pad.y - PLAYER_H;
-        localPlayer.vy = BOUNCE_POWER_C;
-        localPlayer.onGround = false;
-      }
     }
   }
 
@@ -1247,7 +1247,6 @@ function renderGame(timestamp) {
     if (mapIdx !== 0) drawStars(timestamp, mapIdx);
 
     for (const plat of map.platforms) drawPlatform(plat, mapIdx);
-    for (const pad  of map.bouncePads) drawBouncePad(pad, timestamp);
     for (const tp   of map.teleporters) drawTeleporter(tp, timestamp);
 
     // Tag effects
@@ -1317,25 +1316,6 @@ function drawPlatform(plat, mapIdx) {
       ctx.fill();
     }
   }
-  ctx.restore();
-}
-
-function drawBouncePad(pad, t) {
-  ctx.save();
-  const glowA = 0.3 + 0.4 * Math.abs(Math.sin(t * 0.005));
-  ctx.shadowColor = '#f9c74f';
-  ctx.shadowBlur  = 10 * glowA;
-  const grad = ctx.createLinearGradient(pad.x, pad.y, pad.x, pad.y + pad.h);
-  grad.addColorStop(0, '#f9c74f');
-  grad.addColorStop(1, '#f4a261');
-  ctx.fillStyle = grad;
-  ctx.beginPath();
-  ctx.roundRect(pad.x, pad.y, pad.w, pad.h, 5);
-  ctx.fill();
-  ctx.fillStyle = 'rgba(255,255,255,0.9)';
-  ctx.font = '14px sans-serif';
-  ctx.textAlign = 'center';
-  ctx.fillText('▲', pad.x + pad.w/2, pad.y + 13);
   ctx.restore();
 }
 
