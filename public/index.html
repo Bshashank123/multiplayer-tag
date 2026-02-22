@@ -34,7 +34,6 @@
       overflow: hidden;
     }
 
-    /* ═══ SCREENS ═══ */
     .screen {
       position: fixed;
       inset: 0;
@@ -45,7 +44,6 @@
     }
     .screen.active { display: flex; }
 
-    /* Animated background particles */
     body::before {
       content: '';
       position: fixed;
@@ -56,11 +54,7 @@
       z-index: 0;
     }
 
-    /* ═══ LOGIN SCREEN ═══ */
-    #screen-login {
-      flex-direction: column;
-      gap: 0;
-    }
+    #screen-login { flex-direction: column; gap: 0; }
 
     .title-container {
       text-align: center;
@@ -183,10 +177,7 @@
       background: #2a3654;
     }
 
-    .join-row {
-      display: flex;
-      gap: 10px;
-    }
+    .join-row { display: flex; gap: 10px; }
     .join-row input { margin-bottom: 0; flex: 1; }
     .join-row input {
       font-family: 'JetBrains Mono', monospace;
@@ -205,12 +196,7 @@
       text-align: center;
     }
 
-    /* ═══ LOBBY SCREEN ═══ */
-    #screen-lobby {
-      flex-direction: column;
-      gap: 16px;
-      padding: 20px;
-    }
+    #screen-lobby { flex-direction: column; gap: 16px; padding: 20px; }
 
     .lobby-container {
       display: flex;
@@ -220,12 +206,7 @@
       animation: slideUp 0.4s ease;
     }
 
-    .lobby-main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .lobby-main { flex: 1; display: flex; flex-direction: column; gap: 12px; }
 
     .card {
       background: var(--card);
@@ -254,18 +235,9 @@
       padding: 10px 0;
     }
 
-    .room-code-hint {
-      text-align: center;
-      color: #6c7ba0;
-      font-size: 13px;
-      margin-top: 4px;
-    }
+    .room-code-hint { text-align: center; color: #6c7ba0; font-size: 13px; margin-top: 4px; }
 
-    .player-slots {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
+    .player-slots { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 
     .player-slot {
       background: var(--bg2);
@@ -281,155 +253,69 @@
     .player-slot.empty { opacity: 0.4; border-style: dashed; }
 
     .player-avatar {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      flex-shrink: 0;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;
+      position: relative; display: flex; align-items: center; justify-content: center;
     }
 
-    .player-avatar-eyes {
-      display: flex;
-      gap: 5px;
-    }
+    .player-avatar-eyes { display: flex; gap: 5px; }
     .player-avatar-eyes span {
-      width: 7px;
-      height: 7px;
-      background: white;
-      border-radius: 50%;
-      position: relative;
+      width: 7px; height: 7px; background: white; border-radius: 50%; position: relative;
     }
     .player-avatar-eyes span::after {
-      content: '';
-      position: absolute;
-      top: 2px; left: 2px;
-      width: 3px; height: 3px;
-      background: #111;
-      border-radius: 50%;
+      content: ''; position: absolute; top: 2px; left: 2px;
+      width: 3px; height: 3px; background: #111; border-radius: 50%;
     }
 
     .player-info { flex: 1; overflow: hidden; }
-    .player-name {
-      font-weight: 800;
-      font-size: 14px;
-      color: #e8eaf6;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .player-badge {
-      font-size: 10px;
-      color: var(--gold);
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
+    .player-name { font-weight: 800; font-size: 14px; color: #e8eaf6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .player-badge { font-size: 10px; color: var(--gold); font-weight: 700; letter-spacing: 1px; }
 
-    /* Settings */
     .settings-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; border-bottom: 1px solid var(--border);
     }
     .settings-row:last-child { border-bottom: none; padding-bottom: 0; }
     .settings-label { font-weight: 700; color: #6c7ba0; font-size: 13px; }
     .settings-options { display: flex; gap: 6px; }
 
     .opt-btn {
-      padding: 5px 12px;
-      background: #131929;
-      border: 1.5px solid #2a3654;
-      border-radius: 6px;
-      color: #6c7ba0;
-      font-family: 'Nunito', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.15s;
+      padding: 5px 12px; background: #131929; border: 1.5px solid #2a3654; border-radius: 6px;
+      color: #6c7ba0; font-family: 'Nunito', sans-serif; font-size: 12px; font-weight: 700;
+      cursor: pointer; transition: all 0.15s;
     }
     .opt-btn:hover { border-color: #4cc9f0; color: #e8eaf6; }
     .opt-btn.active { background: #4cc9f0; border-color: #4cc9f0; color: #0b0f1a; }
     .opt-btn:disabled { opacity: 0.3; cursor: default; }
 
-    /* Chat in lobby */
-    .lobby-chat {
-      width: 240px;
-      flex-shrink: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    .lobby-chat { width: 240px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
 
     .chat-messages {
-      flex: 1;
-      overflow-y: auto;
-      padding: 12px;
-      background: var(--bg2);
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      min-height: 200px;
-      max-height: 320px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+      flex: 1; overflow-y: auto; padding: 12px; background: var(--bg2);
+      border-radius: 10px; border: 1px solid var(--border);
+      min-height: 200px; max-height: 320px; display: flex; flex-direction: column; gap: 6px;
     }
     .chat-messages::-webkit-scrollbar { width: 4px; }
     .chat-messages::-webkit-scrollbar-track { background: transparent; }
     .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
 
-    .chat-msg {
-      font-size: 12px;
-      line-height: 1.4;
-      color: #e8eaf6;
-      animation: fadeIn 0.2s ease;
-    }
-    .chat-msg .chat-author {
-      font-weight: 800;
-      font-size: 11px;
-    }
+    .chat-msg { font-size: 12px; line-height: 1.4; color: #e8eaf6; animation: fadeIn 0.2s ease; }
+    .chat-msg .chat-author { font-weight: 800; font-size: 11px; }
 
-    .chat-input-row {
-      display: flex;
-      gap: 6px;
-    }
-    .chat-input-row input {
-      flex: 1;
-      margin-bottom: 0;
-      font-size: 13px;
-      padding: 8px 12px;
-    }
+    .chat-input-row { display: flex; gap: 6px; }
+    .chat-input-row input { flex: 1; margin-bottom: 0; font-size: 13px; padding: 8px 12px; }
     .chat-send {
-      padding: 8px 12px;
-      background: #2a3654;
-      border: none;
-      border-radius: 8px;
-      color: #e8eaf6;
-      font-family: 'Nunito', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.15s;
+      padding: 8px 12px; background: #2a3654; border: none; border-radius: 8px;
+      color: #e8eaf6; font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 700;
+      cursor: pointer; transition: background 0.15s;
     }
     .chat-send:hover { background: #4cc9f0; color: #0b0f1a; }
 
-    /* ═══ COUNTDOWN SCREEN ═══ */
-    #screen-countdown {
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
+    #screen-countdown { flex-direction: column; align-items: center; gap: 16px; }
 
     .countdown-number {
-      font-family: 'Boogaloo', cursive;
-      font-size: 200px;
-      line-height: 1;
+      font-family: 'Boogaloo', cursive; font-size: 200px; line-height: 1;
       background: linear-gradient(135deg, #ff4d6d, #f9c74f);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       animation: countPulse 0.6s ease;
     }
 
@@ -438,50 +324,28 @@
       to   { transform: scale(1);   opacity: 1; }
     }
 
-    /* ═══ GAME SCREEN ═══ */
     #screen-game {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: var(--bg);
-      padding: 10px;
+      flex-direction: column; align-items: center; justify-content: center;
+      background: var(--bg); padding: 10px;
     }
 
-    .game-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 1000px;
-    }
+    .game-wrapper { position: relative; width: 100%; max-width: 1000px; }
 
     #gameCanvas {
-      display: block;
-      width: 100%;
-      border-radius: 12px;
-      border: 2px solid var(--border);
-      box-shadow: 0 0 40px rgba(0,0,0,0.6);
+      display: block; width: 100%; border-radius: 12px;
+      border: 2px solid var(--border); box-shadow: 0 0 40px rgba(0,0,0,0.6);
     }
 
     .game-hud {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 12px 14px;
-      pointer-events: none;
+      position: absolute; top: 0; left: 0; right: 0;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 12px 14px; pointer-events: none;
     }
 
     .hud-timer {
-      background: rgba(11,15,26,0.85);
-      border: 1.5px solid #2a3654;
-      border-radius: 10px;
-      padding: 8px 18px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 28px;
-      font-weight: 700;
-      color: #e8eaf6;
-      backdrop-filter: blur(4px);
-      transition: color 0.3s;
+      background: rgba(11,15,26,0.85); border: 1.5px solid #2a3654; border-radius: 10px;
+      padding: 8px 18px; font-family: 'JetBrains Mono', monospace; font-size: 28px;
+      font-weight: 700; color: #e8eaf6; backdrop-filter: blur(4px); transition: color 0.3s;
     }
     .hud-timer.urgent { color: var(--accent); animation: urgentPulse 0.5s ease infinite alternate; }
 
@@ -491,16 +355,9 @@
     }
 
     .hud-it-indicator {
-      background: rgba(255,0,56,0.15);
-      border: 1.5px solid var(--tag-red);
-      border-radius: 10px;
-      padding: 6px 14px;
-      font-size: 13px;
-      font-weight: 800;
-      color: #ff6b6b;
-      text-align: center;
-      backdrop-filter: blur(4px);
-      animation: itPulse 1.5s ease infinite alternate;
+      background: rgba(255,0,56,0.15); border: 1.5px solid var(--tag-red); border-radius: 10px;
+      padding: 6px 14px; font-size: 13px; font-weight: 800; color: #ff6b6b;
+      text-align: center; backdrop-filter: blur(4px); animation: itPulse 1.5s ease infinite alternate;
     }
 
     @keyframes itPulse {
@@ -508,107 +365,46 @@
       to   { box-shadow: 0 0 20px rgba(255,0,56,0.6); }
     }
 
-    .hud-it-name {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 15px;
-      color: var(--tag-red);
-      font-weight: 700;
-    }
+    .hud-it-name { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--tag-red); font-weight: 700; }
 
-    .in-game-chat {
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      width: 220px;
-      pointer-events: all;
-    }
+    .in-game-chat { position: absolute; bottom: 12px; right: 12px; width: 220px; pointer-events: all; }
 
-    .in-game-msgs {
-      max-height: 120px;
-      overflow-y: auto;
-      margin-bottom: 6px;
-    }
+    .in-game-msgs { max-height: 120px; overflow-y: auto; margin-bottom: 6px; }
     .in-game-msgs .chat-msg {
-      background: rgba(11,15,26,0.75);
-      border-radius: 6px;
-      padding: 3px 7px;
-      margin-bottom: 3px;
-      backdrop-filter: blur(4px);
+      background: rgba(11,15,26,0.75); border-radius: 6px;
+      padding: 3px 7px; margin-bottom: 3px; backdrop-filter: blur(4px);
     }
 
-    /* ═══ END SCREEN ═══ */
-    #screen-end {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      padding: 20px;
-    }
+    #screen-end { flex-direction: column; align-items: center; gap: 20px; padding: 20px; }
 
     .end-title {
-      font-family: 'Boogaloo', cursive;
-      font-size: 64px;
-      text-align: center;
+      font-family: 'Boogaloo', cursive; font-size: 64px; text-align: center;
       animation: slideDown 0.5s cubic-bezier(0.34,1.56,0.64,1);
     }
 
     .results-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 440px;
-      max-width: 95vw;
+      display: flex; flex-direction: column; gap: 10px; width: 440px; max-width: 95vw;
       animation: slideUp 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
     }
 
     .result-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 18px;
+      display: flex; align-items: center; gap: 14px; background: var(--card);
+      border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px;
     }
     .result-row.winner { border-color: var(--gold); background: rgba(249,199,79,0.08); }
     .result-row.loser  { border-color: var(--accent); background: rgba(255,77,109,0.08); }
 
-    .result-rank {
-      font-family: 'Boogaloo', cursive;
-      font-size: 28px;
-      width: 36px;
-      text-align: center;
-    }
-
-    .result-color {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      flex-shrink: 0;
-    }
-
+    .result-rank { font-family: 'Boogaloo', cursive; font-size: 28px; width: 36px; text-align: center; }
+    .result-color { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; }
     .result-info { flex: 1; }
     .result-name { font-weight: 800; font-size: 16px; color: #e8eaf6; }
     .result-stat { font-size: 12px; color: #6c7ba0; margin-top: 1px; }
+    .result-status { font-size: 24px; }
 
-    .result-status {
-      font-size: 24px;
-    }
+    .end-actions { display: flex; gap: 10px; animation: slideUp 0.5s ease 0.3s both; }
 
-    .end-actions {
-      display: flex;
-      gap: 10px;
-      animation: slideUp 0.5s ease 0.3s both;
-    }
+    .controls-hint { text-align: center; font-size: 12px; color: #6c7ba0; margin-top: 8px; }
 
-    /* ═══ CONTROL HINTS ═══ */
-    .controls-hint {
-      text-align: center;
-      font-size: 12px;
-      color: #6c7ba0;
-      margin-top: 8px;
-    }
-
-    /* ═══ ANIMATIONS ═══ */
     @keyframes slideDown {
       from { transform: translateY(-30px); opacity: 0; }
       to   { transform: translateY(0);     opacity: 1; }
@@ -621,73 +417,38 @@
       from { opacity: 0; }
       to   { opacity: 1; }
     }
-    @keyframes shimmer {
-      from { background-position: -200% center; }
-      to   { background-position: 200% center; }
-    }
 
-    /* Notification toast */
     #toast {
-      position: fixed;
-      top: 20px;
-      left: 50%;
+      position: fixed; top: 20px; left: 50%;
       transform: translateX(-50%) translateY(-80px);
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 20px;
-      font-weight: 700;
-      font-size: 14px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 10px 20px; font-weight: 700; font-size: 14px;
       transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-      z-index: 1000;
-      white-space: nowrap;
-      pointer-events: none;
+      z-index: 1000; white-space: nowrap; pointer-events: none;
     }
     #toast.show { transform: translateX(-50%) translateY(0); }
 
-    /* Loading overlay */
     #loading {
-      position: fixed;
-      inset: 0;
-      background: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      transition: opacity 0.4s;
+      position: fixed; inset: 0; background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 100; transition: opacity 0.4s;
     }
     #loading.hidden { opacity: 0; pointer-events: none; }
 
     .loading-spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+      width: 40px; height: 40px; border: 3px solid var(--border);
+      border-top-color: var(--accent); border-radius: 50%; animation: spin 0.8s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .ping-display {
-      position: fixed;
-      bottom: 8px;
-      left: 10px;
-      font-size: 11px;
-      color: #6c7ba0;
-      font-family: 'JetBrains Mono', monospace;
-      pointer-events: none;
-      z-index: 50;
+      position: fixed; bottom: 8px; left: 10px; font-size: 11px; color: #6c7ba0;
+      font-family: 'JetBrains Mono', monospace; pointer-events: none; z-index: 50;
     }
 
     .you-badge {
-      font-size: 9px;
-      background: var(--accent2);
-      color: #0b0f1a;
-      border-radius: 3px;
-      padding: 1px 4px;
-      font-weight: 800;
-      margin-left: 4px;
-      vertical-align: middle;
+      font-size: 9px; background: var(--accent2); color: #0b0f1a; border-radius: 3px;
+      padding: 1px 4px; font-weight: 800; margin-left: 4px; vertical-align: middle;
     }
 
     @media (max-width: 600px) {
@@ -699,70 +460,50 @@
 </head>
 <body>
 
-<!-- Loading -->
 <div id="loading"><div class="loading-spinner"></div></div>
-
-<!-- Toast -->
 <div id="toast"></div>
-
-<!-- Ping -->
 <div class="ping-display" id="pingDisplay"></div>
 
-<!-- ═══════════ SCREEN: LOGIN ═══════════ -->
+<!-- LOGIN -->
 <div class="screen" id="screen-login">
   <div>
     <div class="title-container">
       <div class="game-title">TAG</div>
       <div class="game-subtitle">Online Multiplayer · Up to 4 players</div>
     </div>
-
     <div class="login-card">
       <div class="input-label">Your Name</div>
       <input type="text" id="nameInput" placeholder="Enter your name..." maxlength="12" autocomplete="off" />
-
       <div class="btn-group">
         <button class="btn btn-primary" id="createRoomBtn">🎮 Create Room</button>
       </div>
-
       <div class="divider">or join a room</div>
-
       <div class="join-row">
         <input type="text" id="codeInput" placeholder="ABCD" maxlength="4" autocomplete="off" />
         <button class="btn btn-secondary" id="joinRoomBtn">Join →</button>
       </div>
-
       <div class="error-msg" id="loginError"></div>
     </div>
-
-    <div class="controls-hint" style="margin-top:16px;">
-      ← → Move &nbsp;|&nbsp; ↑ / W / Space = Jump
-    </div>
+    <div class="controls-hint" style="margin-top:16px;">← → Move &nbsp;|&nbsp; ↑ / W / Space = Jump</div>
   </div>
 </div>
 
-<!-- ═══════════ SCREEN: LOBBY ═══════════ -->
+<!-- LOBBY -->
 <div class="screen" id="screen-lobby">
   <div style="text-align:center; margin-bottom:12px; animation: slideDown 0.4s ease;">
     <div style="font-family:'Boogaloo',cursive; font-size:38px; color:#e8eaf6;">Waiting Room</div>
   </div>
-
   <div class="lobby-container">
     <div class="lobby-main">
-
-      <!-- Room code -->
       <div class="card">
         <div class="card-title">Room Code — Share with friends</div>
         <div class="room-code-display" id="lobbyCode">----</div>
         <div class="room-code-hint">Give this code to friends to join</div>
       </div>
-
-      <!-- Players -->
       <div class="card">
         <div class="card-title">Players <span id="playerCountBadge" style="color:#e8eaf6;">0/4</span></div>
         <div class="player-slots" id="playerSlots"></div>
       </div>
-
-      <!-- Settings (host only) -->
       <div class="card" id="settingsCard">
         <div class="card-title">Settings</div>
         <div class="settings-row">
@@ -783,18 +524,10 @@
           </div>
         </div>
       </div>
-
-      <!-- Start button -->
-      <button class="btn btn-gold btn-full" id="startGameBtn" style="padding:16px;">
-        ▶ START GAME
-      </button>
+      <button class="btn btn-gold btn-full" id="startGameBtn" style="padding:16px;">▶ START GAME</button>
       <div class="error-msg" id="lobbyError"></div>
-      <button class="btn btn-secondary btn-full" id="leaveRoomBtn" style="padding:12px;">
-        Leave Room
-      </button>
+      <button class="btn btn-secondary btn-full" id="leaveRoomBtn" style="padding:12px;">Leave Room</button>
     </div>
-
-    <!-- Chat -->
     <div class="lobby-chat">
       <div class="card-title" style="color:#6c7ba0; font-size:11px; font-weight:800; letter-spacing:3px; text-transform:uppercase;">Chat</div>
       <div class="chat-messages" id="lobbyChatMessages"></div>
@@ -806,7 +539,7 @@
   </div>
 </div>
 
-<!-- ═══════════ SCREEN: COUNTDOWN ═══════════ -->
+<!-- COUNTDOWN -->
 <div class="screen" id="screen-countdown">
   <div style="text-align:center;">
     <div style="font-size:18px; color:#6c7ba0; font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:10px;">Game starting in</div>
@@ -814,12 +547,10 @@
   </div>
 </div>
 
-<!-- ═══════════ SCREEN: GAME ═══════════ -->
+<!-- GAME -->
 <div class="screen" id="screen-game">
   <div class="game-wrapper">
     <canvas id="gameCanvas" width="1000" height="600"></canvas>
-
-    <!-- HUD overlay -->
     <div class="game-hud">
       <div class="hud-timer" id="hudTimer">1:30</div>
       <div class="hud-it-indicator" id="hudItIndicator">
@@ -831,8 +562,6 @@
         <div style="font-family:'Boogaloo',cursive; font-size:28px; color:#ff0038;">IT!</div>
       </div>
     </div>
-
-    <!-- In-game chat -->
     <div class="in-game-chat">
       <div class="in-game-msgs" id="inGameMsgs"></div>
       <div class="chat-input-row">
@@ -842,13 +571,10 @@
       </div>
     </div>
   </div>
-
-  <div class="controls-hint" style="margin-top:8px;">
-    Arrow Keys or WASD to move • Space / W / ↑ to jump
-  </div>
+  <div class="controls-hint" style="margin-top:8px;">Arrow Keys or WASD to move • Space / W / ↑ to jump</div>
 </div>
 
-<!-- ═══════════ SCREEN: END ═══════════ -->
+<!-- END -->
 <div class="screen" id="screen-end">
   <div class="end-title" id="endTitle">Round Over!</div>
   <div class="results-grid" id="resultsGrid"></div>
@@ -858,7 +584,6 @@
   </div>
 </div>
 
-<!-- Load Socket.IO: try server-hosted first, fall back to CDN -->
 <script>
   (function() {
     var s = document.createElement('script');
@@ -875,18 +600,24 @@
 </script>
 <script>
 // ══════════════════════════════════════════════════
-// CONSTANTS (mirror server-side)
+// CONSTANTS (must match server.js exactly)
 // ══════════════════════════════════════════════════
+const PLAYER_W      = 28;
+const PLAYER_H      = 36;
+const MAP_W         = 1000;
+const MAP_H         = 600;
 
-const PLAYER_W   = 28;
-const PLAYER_H   = 36;
-const MAP_W      = 1000;
-const MAP_H      = 600;
-const TICK_MS    = 1000 / 60; // 60Hz server
+// Physics — MUST match server
+const GRAVITY_C     = 1400;
+const MOVE_SPEED_C  = 230;
+const JUMP_SPEED_C  = -570;
+const MAX_FALL_C    = 900;
+const BOUNCE_POWER_C = -720;
+
+const SERVER_TICK_MS = 1000 / 60; // server runs at 60Hz
 
 const PLAYER_COLORS = ['#FF4D6D', '#4CC9F0', '#F9C74F', '#90BE6D'];
 
-// Map definitions (must match server)
 const MAPS = [
   {
     name: 'Grasslands',
@@ -973,34 +704,43 @@ const MAPS = [
 // ══════════════════════════════════════════════════
 // STATE
 // ══════════════════════════════════════════════════
-
 let socket;
 let myId     = null;
 let myName   = '';
-let roomData = null;  // lobby data
+let roomData = null;
 let isHost   = false;
 
-// Rendering interpolation
+// Server state ring buffer for interpolation of OTHER players
 let prevGameState = null;
 let currGameState = null;
 let lastStateTime = 0;
 
-// Input state
-const keys = { left:false, right:false, jump:false };
+// ──────────────────────────────────────────────────
+// INPUT STATE
+// keys: current held state (sent to server continuously)
+// jumpEdge: true for exactly ONE frame when jump first pressed
+//           consumed by predictLocalPlayer, then cleared
+// ──────────────────────────────────────────────────
+const keys = { left: false, right: false, jump: false };
+let jumpEdge = false; // rising-edge of jump key — one-shot
 
 // Canvas
 const canvas = document.getElementById('gameCanvas');
 const ctx    = canvas.getContext('2d');
 
-// Animation particles/effects
-const tagEffects = []; // {x, y, t, maxT, playerColor}
-const pingArr    = [];
-let   ping       = 0;
+// Effects
+const tagEffects = [];
+let ping = 0;
+
+// ══════════════════════════════════════════════════
+// CLIENT-SIDE PREDICTION STATE
+// localPlayer: our predicted position, updated every frame at 60fps
+// ══════════════════════════════════════════════════
+let localPlayer = null;
 
 // ══════════════════════════════════════════════════
 // SOCKET SETUP
 // ══════════════════════════════════════════════════
-
 function initSocket() {
   socket = io({ autoConnect: true });
 
@@ -1036,12 +776,9 @@ function initSocket() {
   });
 
   socket.on('settingsChanged', ({ mapIndex, roundDuration }) => {
-    if (roomData) {
-      roomData.mapIndex = mapIndex;
-      roomData.roundDuration = roundDuration;
-    }
+    if (roomData) { roomData.mapIndex = mapIndex; roomData.roundDuration = roundDuration; }
     updateSettingsUI(mapIndex, roundDuration);
-    addChatMsg('lobbyChatMessages', { name: '•', color: '#6c7ba0', msg: `Settings updated` });
+    addChatMsg('lobbyChatMessages', { name: '•', color: '#6c7ba0', msg: 'Settings updated' });
   });
 
   socket.on('countdown', ({ value }) => {
@@ -1058,37 +795,50 @@ function initSocket() {
     roomData.mapIndex = mapIndex;
     prevGameState = null;
     currGameState = null;
-    localPlayer = null; // reset prediction state
+    localPlayer   = null; // will be seeded on first gameState
+    jumpEdge      = false;
     showScreen('game');
   });
 
   socket.on('gameState', (state) => {
+    // Shift server states for interpolation of remote players
     prevGameState = currGameState;
     currGameState = state;
     lastStateTime = performance.now();
+
     updateGameHUD(state);
 
-    // Initialise local prediction state from first server snapshot
+    // Reconcile / seed local player prediction
     const serverMe = state.players[myId];
     if (serverMe) {
       if (!localPlayer) {
-        // First state — seed local player
-        localPlayer = { ...serverMe };
+        // First snapshot — seed local state exactly from server
+        localPlayer = {
+          x:        serverMe.x,
+          y:        serverMe.y,
+          vx:       serverMe.vx,
+          vy:       serverMe.vy,
+          onGround: serverMe.onGround,
+          isIt:     serverMe.isIt,
+          tagCooldown: serverMe.tagCooldown,
+        };
       } else {
-        // Reconcile predicted position against server truth
         reconcileLocalPlayer(serverMe);
       }
     }
   });
 
   socket.on('tagged', ({ newItId, oldItId, newItName }) => {
-    // Visual effect
     if (currGameState?.players[oldItId]) {
       const p = currGameState.players[oldItId];
-      tagEffects.push({ x: p.x + PLAYER_W/2, y: p.y, t: 0, maxT: 40, color: p.color });
+      tagEffects.push({ x: p.x + PLAYER_W/2, y: p.y, t: 0, maxT: 40 });
     }
     const wasMe = newItId === myId;
     showToast(wasMe ? '😱 YOU ARE IT!' : `${newItName} is now IT!`, wasMe ? '#ff4d6d' : '#f9c74f');
+    // Sync isIt on local player instantly so HUD/glow is correct
+    if (localPlayer) {
+      localPlayer.isIt = (newItId === myId);
+    }
   });
 
   socket.on('gameEnd', ({ reason, results }) => {
@@ -1096,10 +846,11 @@ function initSocket() {
   });
 
   socket.on('returnToLobby', (data) => {
-    roomData = data;
-    isHost   = (data.host === myId);
+    roomData  = data;
+    isHost    = (data.host === myId);
     prevGameState = null;
     currGameState = null;
+    localPlayer   = null;
     updateLobbyUI();
     updateSettingsUI(data.mapIndex, data.roundDuration);
     showScreen('lobby');
@@ -1117,7 +868,6 @@ function initSocket() {
 // ══════════════════════════════════════════════════
 // UI HELPERS
 // ══════════════════════════════════════════════════
-
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(`screen-${id}`).classList.add('active');
@@ -1141,7 +891,6 @@ function addChatMsg(containerId, { name, color, msg }) {
   div.innerHTML = `<span class="chat-author" style="color:${color};">${escapeHtml(name)}</span>: ${escapeHtml(msg)}`;
   container.appendChild(div);
   container.scrollTop = container.scrollHeight;
-  // Keep max 40 messages
   while (container.children.length > 40) container.removeChild(container.firstChild);
 }
 
@@ -1152,11 +901,9 @@ function escapeHtml(str) {
 function updateLobbyUI() {
   if (!roomData) return;
   isHost = (roomData.host === myId);
-
   document.getElementById('lobbyCode').textContent = roomData.code;
   document.getElementById('playerCountBadge').textContent = `${roomData.players.length}/4`;
 
-  // Render player slots
   const slotsEl = document.getElementById('playerSlots');
   slotsEl.innerHTML = '';
   for (let i = 0; i < 4; i++) {
@@ -1172,27 +919,20 @@ function updateLobbyUI() {
         <div class="player-info">
           <div class="player-name">${escapeHtml(p.name)}${isMe ? '<span class="you-badge">YOU</span>' : ''}</div>
           ${p.id === roomData.host ? '<div class="player-badge">★ HOST</div>' : ''}
-        </div>
-      `;
+        </div>`;
     } else {
       div.className = 'player-slot empty';
       div.innerHTML = `
         <div class="player-avatar" style="background:#2a3654;"></div>
-        <div class="player-info"><div class="player-name" style="color:#6c7ba0;">Waiting...</div></div>
-      `;
+        <div class="player-info"><div class="player-name" style="color:#6c7ba0;">Waiting...</div></div>`;
     }
     slotsEl.appendChild(div);
   }
 
-  // Settings — only interactive for host
-  const settingsCard = document.getElementById('settingsCard');
-  settingsCard.querySelectorAll('.opt-btn').forEach(btn => {
+  document.getElementById('settingsCard').querySelectorAll('.opt-btn').forEach(btn => {
     btn.disabled = !isHost;
   });
-
-  // Start button — only for host
-  const startBtn = document.getElementById('startGameBtn');
-  startBtn.style.display = isHost ? 'block' : 'none';
+  document.getElementById('startGameBtn').style.display = isHost ? 'block' : 'none';
 }
 
 function updateSettingsUI(mapIndex, roundDuration) {
@@ -1205,33 +945,27 @@ function updateSettingsUI(mapIndex, roundDuration) {
 }
 
 function updateGameHUD(state) {
-  const timer = state.timer;
-  const mins  = Math.floor(timer / 60);
-  const secs  = String(timer % 60).padStart(2, '0');
+  const mins  = Math.floor(state.timer / 60);
+  const secs  = String(state.timer % 60).padStart(2, '0');
   const timerEl = document.getElementById('hudTimer');
   timerEl.textContent = `${mins}:${secs}`;
-  timerEl.classList.toggle('urgent', timer <= 10);
+  timerEl.classList.toggle('urgent', state.timer <= 10);
 
   const itPlayer = state.players[state.itPlayerId];
   document.getElementById('hudItName').textContent = itPlayer ? itPlayer.name : '—';
 
   const iAmIt = state.itPlayerId === myId;
   document.getElementById('hudItIndicator').style.display = iAmIt ? 'none' : 'block';
-  document.getElementById('hudYouAreIt').style.display  = iAmIt ? 'block' : 'none';
+  document.getElementById('hudYouAreIt').style.display    = iAmIt ? 'block' : 'none';
 }
 
 function showEndScreen(results, reason) {
   showScreen('end');
-
-  const reasonMsgs = {
-    timeout: "Time's Up!",
-    not_enough_players: 'Not Enough Players'
-  };
+  const reasonMsgs = { timeout: "Time's Up!", not_enough_players: 'Not Enough Players' };
   document.getElementById('endTitle').textContent = reasonMsgs[reason] || 'Round Over!';
 
   const grid = document.getElementById('resultsGrid');
   grid.innerHTML = '';
-
   results.forEach((r, i) => {
     const row = document.createElement('div');
     row.className = `result-row ${r.won ? 'winner' : 'loser'}`;
@@ -1243,8 +977,7 @@ function showEndScreen(results, reason) {
         <div class="result-name">${escapeHtml(r.name)}${r.id === myId ? '<span class="you-badge">YOU</span>' : ''}</div>
         <div class="result-stat">Tagged ${r.timesTagged} time${r.timesTagged !== 1 ? 's' : ''} · ${r.won ? '🎉 SURVIVED' : '💀 WAS IT'}</div>
       </div>
-      <div class="result-status">${r.won ? '✅' : '❌'}</div>
-    `;
+      <div class="result-status">${r.won ? '✅' : '❌'}</div>`;
     grid.appendChild(row);
   });
 
@@ -1254,89 +987,86 @@ function showEndScreen(results, reason) {
 // ══════════════════════════════════════════════════
 // INPUT HANDLING
 // ══════════════════════════════════════════════════
-
 const KEY_MAP = {
   ArrowLeft:  'left',  KeyA: 'left',
   ArrowRight: 'right', KeyD: 'right',
   ArrowUp:    'jump',  KeyW: 'jump', Space: 'jump',
 };
 
-let jumpJustPressed = false;
+let chatFocused = false;
 
 document.addEventListener('keydown', (e) => {
+  if (chatFocused) return;
   const action = KEY_MAP[e.code];
   if (!action) return;
   e.preventDefault();
-  if (action === 'jump' && !keys.jump) jumpJustPressed = true;
+
+  // Detect rising edge of jump for one-shot local prediction
+  if (action === 'jump' && !keys.jump) {
+    jumpEdge = true; // will be consumed by predictLocalPlayer this frame
+  }
+
   keys[action] = true;
-  // Send immediately on keydown for minimum latency
-  flushInput();
+  sendInput();
 });
 
 document.addEventListener('keyup', (e) => {
+  if (chatFocused) return;
   const action = KEY_MAP[e.code];
   if (!action) return;
   keys[action] = false;
-  flushInput();
+  // Don't clear jumpEdge here — it's consumed in predictLocalPlayer
+  sendInput();
 });
 
-function flushInput() {
-  if (!socket || !document.getElementById('screen-game').classList.contains('active')) return;
+function sendInput() {
+  if (!socket) return;
+  if (!document.getElementById('screen-game').classList.contains('active')) return;
   socket.emit('input', { left: keys.left, right: keys.right, jump: keys.jump });
 }
 
-// Re-send input every 50ms even if unchanged — prevents missed inputs due to packet loss
+// Re-send input periodically to recover from packet loss
 setInterval(() => {
   if (document.getElementById('screen-game').classList.contains('active')) {
     socket?.emit('input', { left: keys.left, right: keys.right, jump: keys.jump });
   }
 }, 50);
 
-// Prevent space scrolling on game screen
-document.addEventListener('keydown', (e) => {
-  if (e.code === 'Space' && document.getElementById('screen-game').classList.contains('active')) {
-    e.preventDefault();
-  }
-});
-
-// ══════════════════════════════════════════════════
-// RENDERING
-// ══════════════════════════════════════════════════
-
 // ══════════════════════════════════════════════════
 // CLIENT-SIDE PREDICTION
-// Local player moves instantly. Others are interpolated.
+// Mirrors server physics. localPlayer is advanced every
+// animation frame so YOUR player never feels laggy.
+// Other players use server-state interpolation.
 // ══════════════════════════════════════════════════
-
-const GRAVITY_C    = 1400;
-const MOVE_SPEED_C = 230;
-const JUMP_SPEED_C = -570;
-const MAX_FALL_C   = 900;
-const DT_C         = 1 / 60; // client runs at 60fps
-
-// Local predicted player state
-let localPlayer = null; // mirrors server player but updated locally each frame
 
 function aabbOverlapC(ax, ay, aw, ah, bx, by, bw, bh) {
   return ax < bx+bw && ax+aw > bx && ay < by+bh && ay+ah > by;
 }
 
 function predictLocalPlayer(dt) {
-  if (!localPlayer) return;
+  if (!localPlayer || dt <= 0) return;
   const map = MAPS[roomData?.mapIndex ?? 0];
 
-  // Apply input
-  if (keys.left && !keys.right)       localPlayer.vx = -MOVE_SPEED_C;
-  else if (keys.right && !keys.left)  localPlayer.vx =  MOVE_SPEED_C;
-  else { localPlayer.vx *= 0.82; if (Math.abs(localPlayer.vx) < 2) localPlayer.vx = 0; }
+  // ── Horizontal velocity from input ──
+  if (keys.left && !keys.right) {
+    localPlayer.vx = -MOVE_SPEED_C;
+  } else if (keys.right && !keys.left) {
+    localPlayer.vx = MOVE_SPEED_C;
+  } else {
+    // Friction (matches server's 0.82 factor per tick)
+    // At 60fps this is equivalent to server's per-tick friction
+    localPlayer.vx *= 0.82;
+    if (Math.abs(localPlayer.vx) < 2) localPlayer.vx = 0;
+  }
 
-  if (jumpJustPressed && localPlayer.onGround) {
+  // ── Jump: consume the one-shot edge flag ──
+  if (jumpEdge && localPlayer.onGround) {
     localPlayer.vy = JUMP_SPEED_C;
     localPlayer.onGround = false;
   }
-  jumpJustPressed = false;
+  jumpEdge = false; // always consume after checking
 
-  // X physics
+  // ── X movement + platform collision ──
   localPlayer.x += localPlayer.vx * dt;
   localPlayer.x = Math.max(0, Math.min(MAP_W - PLAYER_W, localPlayer.x));
 
@@ -1344,12 +1074,12 @@ function predictLocalPlayer(dt) {
     if (!aabbOverlapC(localPlayer.x, localPlayer.y, PLAYER_W, PLAYER_H, plat.x, plat.y, plat.w, plat.h)) continue;
     const overL = (localPlayer.x + PLAYER_W) - plat.x;
     const overR = (plat.x + plat.w) - localPlayer.x;
-    if (overL < overR) localPlayer.x = plat.x - PLAYER_W;
-    else               localPlayer.x = plat.x + plat.w;
+    if (overL < overR) { localPlayer.x = plat.x - PLAYER_W; }
+    else               { localPlayer.x = plat.x + plat.w; }
     localPlayer.vx = 0;
   }
 
-  // Y physics
+  // ── Y movement + gravity + platform collision ──
   localPlayer.vy = Math.min(localPlayer.vy + GRAVITY_C * dt, MAX_FALL_C);
   localPlayer.y += localPlayer.vy * dt;
   localPlayer.onGround = false;
@@ -1368,52 +1098,84 @@ function predictLocalPlayer(dt) {
     }
   }
 
-  // Bounce pads
+  // ── Bounce pads ──
   for (const pad of map.bouncePads) {
     if (aabbOverlapC(localPlayer.x, localPlayer.y, PLAYER_W, PLAYER_H, pad.x, pad.y, pad.w, pad.h)) {
       if (localPlayer.vy >= 0) {
         localPlayer.y = pad.y - PLAYER_H;
-        localPlayer.vy = -720;
+        localPlayer.vy = BOUNCE_POWER_C;
         localPlayer.onGround = false;
       }
     }
   }
 
-  // Fell off
-  if (localPlayer.y > MAP_H + 100) { localPlayer.y = 80; localPlayer.vy = 0; }
-}
-
-// When server state arrives, reconcile: if we're too far off snap back
-function reconcileLocalPlayer(serverPlayer) {
-  if (!serverPlayer || !localPlayer) return;
-  const dx = Math.abs(localPlayer.x - serverPlayer.x);
-  const dy = Math.abs(localPlayer.y - serverPlayer.y);
-  if (dx > 80 || dy > 80) {
-    // Snap if very desynced
-    localPlayer.x = serverPlayer.x;
-    localPlayer.y = serverPlayer.y;
-    localPlayer.vx = serverPlayer.vx;
-    localPlayer.vy = serverPlayer.vy;
-  } else if (dx > 20 || dy > 20) {
-    // Smooth correction
-    localPlayer.x += (serverPlayer.x - localPlayer.x) * 0.3;
-    localPlayer.y += (serverPlayer.y - localPlayer.y) * 0.3;
+  // ── Fell off world ──
+  if (localPlayer.y > MAP_H + 100) {
+    localPlayer.y = 80;
+    localPlayer.vy = 0;
+    localPlayer.onGround = false;
   }
-  // Always sync game state
-  localPlayer.isIt = serverPlayer.isIt;
-  localPlayer.tagCooldown = serverPlayer.tagCooldown;
-  localPlayer.onGround = serverPlayer.onGround;
 }
 
+/**
+ * Reconcile our predicted position against the authoritative server position.
+ *
+ * Strategy:
+ *   - Hard snap if > 80px off (major desync — teleport, bounce pad, etc.)
+ *   - Smooth blend if 20–80px off (minor drift)
+ *   - Do nothing if < 20px off (trust prediction — avoids jitter)
+ *
+ * We intentionally DO NOT copy onGround from the server here because that
+ * would immediately cancel a locally-predicted jump one frame after the
+ * server confirms the ground state, causing the classic "jump stutters" bug.
+ * The local physics already updates onGround correctly.
+ *
+ * We DO sync game-logic fields (isIt, tagCooldown) which we cannot predict.
+ */
+function reconcileLocalPlayer(serverMe) {
+  if (!serverMe || !localPlayer) return;
+
+  const dx = Math.abs(localPlayer.x - serverMe.x);
+  const dy = Math.abs(localPlayer.y - serverMe.y);
+
+  if (dx > 80 || dy > 80) {
+    // Hard snap — major desync (teleporter, respawn, etc.)
+    localPlayer.x  = serverMe.x;
+    localPlayer.y  = serverMe.y;
+    localPlayer.vx = serverMe.vx;
+    localPlayer.vy = serverMe.vy;
+    localPlayer.onGround = serverMe.onGround;
+  } else if (dx > 20 || dy > 20) {
+    // Smooth correction — gently nudge toward server truth
+    // 0.25 blend per frame = fully corrected in ~5 frames (~83ms)
+    localPlayer.x += (serverMe.x - localPlayer.x) * 0.25;
+    localPlayer.y += (serverMe.y - localPlayer.y) * 0.25;
+    // Also blend velocity so movement feels continuous after correction
+    localPlayer.vx += (serverMe.vx - localPlayer.vx) * 0.25;
+    localPlayer.vy += (serverMe.vy - localPlayer.vy) * 0.25;
+  }
+  // < 20px: trust local prediction entirely — no correction, no jitter
+
+  // Always sync authoritative game-logic fields we can't predict locally
+  localPlayer.isIt        = serverMe.isIt;
+  localPlayer.tagCooldown = serverMe.tagCooldown;
+  // NOTE: intentionally NOT syncing onGround here — see doc above
+}
+
+// ══════════════════════════════════════════════════
+// INTERPOLATION for remote players
+// ══════════════════════════════════════════════════
 function lerp(a, b, t) { return a + (b - a) * t; }
 
 function getInterpolatedState() {
   if (!currGameState) return null;
-  if (!prevGameState) return currGameState;
+  if (!prevGameState)  return currGameState;
 
   const now     = performance.now();
   const elapsed = now - lastStateTime;
-  const t       = Math.min(elapsed / TICK_MS, 1.5); // allow slight extrapolation
+  // t in [0, 1]: 0 = just got state, 1 = one full tick has elapsed
+  // Allow slight extrapolation up to 1.2 to stay smooth during brief stalls
+  const t = Math.min(elapsed / SERVER_TICK_MS, 1.2);
 
   const interp = { ...currGameState, players: {} };
 
@@ -1422,10 +1184,16 @@ function getInterpolatedState() {
     const prev = prevGameState.players?.[id];
 
     if (id === myId && localPlayer) {
-      // Use client-predicted position for own player — zero lag!
-      interp.players[id] = { ...curr, x: localPlayer.x, y: localPlayer.y };
+      // OWN PLAYER: use client-predicted position — zero perceived lag
+      interp.players[id] = {
+        ...curr,
+        x: localPlayer.x,
+        y: localPlayer.y,
+        isIt: localPlayer.isIt,
+        tagCooldown: localPlayer.tagCooldown,
+      };
     } else if (prev) {
-      // Interpolate remote players
+      // REMOTE PLAYERS: interpolate between last two server snapshots
       interp.players[id] = {
         ...curr,
         x: lerp(prev.x, curr.x, t),
@@ -1439,46 +1207,44 @@ function getInterpolatedState() {
   return interp;
 }
 
-let animTime = 0;
+// ══════════════════════════════════════════════════
+// RENDER LOOP
+// ══════════════════════════════════════════════════
 let lastFrameTime = 0;
 
 function renderGame(timestamp) {
-  requestAnimationFrame(renderGame); // ALWAYS requeue FIRST — crash-proof
+  requestAnimationFrame(renderGame); // always requeue first
 
   try {
-    const dt = Math.min((timestamp - lastFrameTime) / 1000, 0.05); // cap at 50ms
+    // Guard against first-frame dt = 0 or huge spike after tab hidden
+    const rawDt = timestamp - lastFrameTime;
     lastFrameTime = timestamp;
+    if (rawDt <= 0 || rawDt > 200) return; // skip bad frames
+    const dt = Math.min(rawDt / 1000, 0.05); // cap at 50ms
 
     const onGameScreen = document.getElementById('screen-game').classList.contains('active');
     if (!onGameScreen) return;
 
-    // Run client-side prediction every frame for zero-lag local movement
+    // Advance client-side prediction by one frame
     predictLocalPlayer(dt);
 
-    animTime = timestamp;
     const mapIdx = (roomData?.mapIndex != null) ? roomData.mapIndex : 0;
     const map = MAPS[mapIdx] || MAPS[0];
 
     ctx.clearRect(0, 0, MAP_W, MAP_H);
 
-    // Background gradient
+    // Background
     const grad = ctx.createLinearGradient(0, 0, 0, MAP_H);
     grad.addColorStop(0, map.bgTop);
     grad.addColorStop(1, map.bgBottom);
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, MAP_W, MAP_H);
 
-    // Stars (for arctic/desert)
     if (mapIdx !== 0) drawStars(timestamp, mapIdx);
 
-    // Platforms
-    for (const plat of map.platforms) drawPlatform(ctx, plat, mapIdx);
-
-    // Bounce pads
-    for (const pad of map.bouncePads) drawBouncePad(ctx, pad, timestamp);
-
-    // Teleporters
-    for (const tp of map.teleporters) drawTeleporter(ctx, tp, timestamp);
+    for (const plat of map.platforms) drawPlatform(plat, mapIdx);
+    for (const pad  of map.bouncePads) drawBouncePad(pad, timestamp);
+    for (const tp   of map.teleporters) drawTeleporter(tp, timestamp);
 
     // Tag effects
     for (let i = tagEffects.length - 1; i >= 0; i--) {
@@ -1491,9 +1257,8 @@ function renderGame(timestamp) {
       ctx.globalAlpha = alpha;
       ctx.strokeStyle = '#ff4d6d';
       ctx.lineWidth = 3;
-      const radius = 20 + progress * 60;
       ctx.beginPath();
-      ctx.arc(fx.x, fx.y + PLAYER_H/2, radius, 0, Math.PI * 2);
+      ctx.arc(fx.x, fx.y + PLAYER_H/2, 20 + progress * 60, 0, Math.PI * 2);
       ctx.stroke();
       ctx.fillStyle = '#ff4d6d';
       ctx.font = `bold ${16 + progress * 12}px 'Boogaloo', cursive`;
@@ -1506,15 +1271,13 @@ function renderGame(timestamp) {
     const state = getInterpolatedState();
     if (state) {
       for (const id in state.players) {
-        drawPlayer(ctx, state.players[id], id === myId, timestamp);
+        drawPlayer(state.players[id], id === myId, timestamp);
       }
     }
 
-    // Vignette
-    drawVignette(ctx);
+    drawVignette();
 
-  } catch(e) {
-    // Swallow errors — never let a crash kill the render loop
+  } catch (e) {
     console.warn('Render error:', e);
   }
 }
@@ -1532,25 +1295,16 @@ function drawStars(t, mapIdx) {
   ctx.restore();
 }
 
-function drawPlatform(ctx, plat, mapIdx) {
+function drawPlatform(plat, mapIdx) {
   ctx.save();
-
-  // Shadow
   ctx.fillStyle = 'rgba(0,0,0,0.25)';
   ctx.fillRect(plat.x + 3, plat.y + 5, plat.w, plat.h);
-
-  // Main platform
   ctx.fillStyle = plat.color;
   ctx.beginPath();
-  const r = 4;
-  ctx.roundRect(plat.x, plat.y, plat.w, plat.h, r);
+  ctx.roundRect(plat.x, plat.y, plat.w, plat.h, 4);
   ctx.fill();
-
-  // Top highlight
   ctx.fillStyle = 'rgba(255,255,255,0.18)';
-  ctx.fillRect(plat.x + r, plat.y, plat.w - r*2, 3);
-
-  // Grass/texture details for first map
+  ctx.fillRect(plat.x + 4, plat.y, plat.w - 8, 3);
   if (mapIdx === 0 && plat.h < 30) {
     ctx.fillStyle = '#52b788';
     for (let gx = plat.x + 4; gx < plat.x + plat.w - 4; gx += 14) {
@@ -1559,21 +1313,14 @@ function drawPlatform(ctx, plat, mapIdx) {
       ctx.fill();
     }
   }
-
   ctx.restore();
 }
 
-function drawBouncePad(ctx, pad, t) {
+function drawBouncePad(pad, t) {
   ctx.save();
-
-  const bounce = Math.abs(Math.sin(t * 0.004)) * 0.3 + 0.7;
-  const glowA  = 0.3 + 0.4 * Math.abs(Math.sin(t * 0.005));
-
-  // Glow
-  ctx.shadowColor  = '#f9c74f';
-  ctx.shadowBlur   = 10 * glowA;
-
-  // Body
+  const glowA = 0.3 + 0.4 * Math.abs(Math.sin(t * 0.005));
+  ctx.shadowColor = '#f9c74f';
+  ctx.shadowBlur  = 10 * glowA;
   const grad = ctx.createLinearGradient(pad.x, pad.y, pad.x, pad.y + pad.h);
   grad.addColorStop(0, '#f9c74f');
   grad.addColorStop(1, '#f4a261');
@@ -1581,40 +1328,29 @@ function drawBouncePad(ctx, pad, t) {
   ctx.beginPath();
   ctx.roundRect(pad.x, pad.y, pad.w, pad.h, 5);
   ctx.fill();
-
-  // Arrow indicator
   ctx.fillStyle = 'rgba(255,255,255,0.9)';
   ctx.font = '14px sans-serif';
   ctx.textAlign = 'center';
   ctx.fillText('▲', pad.x + pad.w/2, pad.y + 13);
-
   ctx.restore();
 }
 
-function drawTeleporter(ctx, tp, t) {
+function drawTeleporter(tp, t) {
   ctx.save();
-
   const spin  = t * 0.003;
   const pulse = 0.6 + 0.4 * Math.abs(Math.sin(t * 0.004));
-
-  // Outer glow
   ctx.shadowColor = '#4cc9f0';
   ctx.shadowBlur  = 15 * pulse;
-
-  // Rotating ring
   ctx.strokeStyle = `hsla(${190 + Math.sin(spin) * 30}, 90%, 70%, ${pulse})`;
   ctx.lineWidth   = 3;
   ctx.beginPath();
   ctx.arc(tp.x, tp.y, tp.r, spin, spin + Math.PI * 1.5);
   ctx.stroke();
-
   ctx.strokeStyle = `hsla(${220 + Math.cos(spin) * 30}, 90%, 80%, ${pulse * 0.5})`;
   ctx.lineWidth   = 2;
   ctx.beginPath();
   ctx.arc(tp.x, tp.y, tp.r - 6, -spin, -spin + Math.PI * 1.5);
   ctx.stroke();
-
-  // Core orb
   const orbGrad = ctx.createRadialGradient(tp.x, tp.y, 0, tp.x, tp.y, tp.r - 4);
   orbGrad.addColorStop(0, `rgba(76,201,240,${0.8 * pulse})`);
   orbGrad.addColorStop(1, 'rgba(76,201,240,0)');
@@ -1622,57 +1358,42 @@ function drawTeleporter(ctx, tp, t) {
   ctx.beginPath();
   ctx.arc(tp.x, tp.y, tp.r - 4, 0, Math.PI * 2);
   ctx.fill();
-
   ctx.restore();
 }
 
-function drawPlayer(ctx, player, isMe, t) {
-  const { x, y, color, name, isIt, tagCooldown, id } = player;
-
+function drawPlayer(player, isMe, t) {
+  const { x, y, color, name, isIt, tagCooldown } = player;
   ctx.save();
 
-  // Tag immunity flash
   if (tagCooldown > 0) {
-    const flash = Math.sin(t * 0.02) > 0;
-    if (flash) {
-      ctx.shadowColor = 'white';
-      ctx.shadowBlur  = 12;
-    }
+    if (Math.sin(t * 0.02) > 0) { ctx.shadowColor = 'white'; ctx.shadowBlur = 12; }
   }
 
-  // "It" player glow
   if (isIt) {
     ctx.shadowColor = '#ff0038';
     ctx.shadowBlur  = 16 + 8 * Math.abs(Math.sin(t * 0.006));
   }
 
-  // Body
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.roundRect(x, y, PLAYER_W, PLAYER_H, 5);
   ctx.fill();
 
-  // Body highlight (top)
   ctx.fillStyle = 'rgba(255,255,255,0.25)';
   ctx.fillRect(x + 4, y + 3, PLAYER_W - 8, 6);
 
-  // Eyes
   const eyeY = y + 10;
-  const eyePositions = [x + 6, x + 16];
-  for (const ex of eyePositions) {
-    // White
+  for (const ex of [x + 6, x + 16]) {
     ctx.fillStyle = 'white';
     ctx.beginPath();
     ctx.arc(ex, eyeY, 5, 0, Math.PI * 2);
     ctx.fill();
-    // Pupil
     ctx.fillStyle = '#111';
     ctx.beginPath();
     ctx.arc(ex + 1, eyeY + 1, 2.5, 0, Math.PI * 2);
     ctx.fill();
   }
 
-  // "IT" crown above head
   if (isIt) {
     const arrowY = y - 22 + Math.sin(t * 0.007) * 4;
     ctx.fillStyle = '#ff0038';
@@ -1681,12 +1402,8 @@ function drawPlayer(ctx, player, isMe, t) {
     ctx.shadowColor = '#ff0038';
     ctx.shadowBlur  = 8;
     ctx.fillText('IT!', x + PLAYER_W/2, arrowY - 2);
-
-    // Arrow
-    ctx.fillStyle = '#ff0038';
     ctx.beginPath();
-    const ax = x + PLAYER_W/2;
-    const ay = y - 4;
+    const ax = x + PLAYER_W/2, ay = y - 4;
     ctx.moveTo(ax, ay);
     ctx.lineTo(ax - 6, ay - 8);
     ctx.lineTo(ax + 6, ay - 8);
@@ -1695,17 +1412,15 @@ function drawPlayer(ctx, player, isMe, t) {
     ctx.shadowBlur = 0;
   }
 
-  // Name tag
   ctx.shadowBlur = 0;
-  ctx.font       = `bold 11px 'Nunito', sans-serif`;
-  ctx.textAlign  = 'center';
+  ctx.font = `bold 11px 'Nunito', sans-serif`;
+  ctx.textAlign = 'center';
   const nameText = isMe ? `${name} ◀` : name;
   const textX    = x + PLAYER_W/2;
   const textY    = y - (isIt ? 38 : 16);
-
-  // Background pill for name
   const textWidth = ctx.measureText(nameText).width;
-  ctx.fillStyle   = 'rgba(11,15,26,0.7)';
+
+  ctx.fillStyle = 'rgba(11,15,26,0.7)';
   ctx.beginPath();
   ctx.roundRect(textX - textWidth/2 - 5, textY - 11, textWidth + 10, 14, 4);
   ctx.fill();
@@ -1713,7 +1428,6 @@ function drawPlayer(ctx, player, isMe, t) {
   ctx.fillStyle = isMe ? '#4cc9f0' : 'rgba(255,255,255,0.85)';
   ctx.fillText(nameText, textX, textY);
 
-  // "YOU" indicator border
   if (isMe) {
     ctx.strokeStyle = '#4cc9f0';
     ctx.lineWidth   = 2;
@@ -1726,7 +1440,7 @@ function drawPlayer(ctx, player, isMe, t) {
   ctx.restore();
 }
 
-function drawVignette(ctx) {
+function drawVignette() {
   const grad = ctx.createRadialGradient(MAP_W/2, MAP_H/2, MAP_H * 0.3, MAP_W/2, MAP_H/2, MAP_H * 0.85);
   grad.addColorStop(0, 'rgba(0,0,0,0)');
   grad.addColorStop(1, 'rgba(0,0,0,0.35)');
@@ -1734,13 +1448,11 @@ function drawVignette(ctx) {
   ctx.fillRect(0, 0, MAP_W, MAP_H);
 }
 
-// Start render loop
 requestAnimationFrame(renderGame);
 
 // ══════════════════════════════════════════════════
 // PING
 // ══════════════════════════════════════════════════
-
 function startPing() {
   setInterval(() => {
     const start = Date.now();
@@ -1754,7 +1466,6 @@ function startPing() {
 // ══════════════════════════════════════════════════
 // BUTTON HANDLERS
 // ══════════════════════════════════════════════════
-
 function setLoginError(msg) {
   document.getElementById('loginError').textContent = msg;
 }
@@ -1763,7 +1474,6 @@ document.getElementById('createRoomBtn').addEventListener('click', () => {
   const name = document.getElementById('nameInput').value.trim();
   if (!name) return setLoginError('Please enter your name');
   myName = name;
-
   socket.emit('createRoom', { name, mapIndex: 0, roundDuration: 90 }, (res) => {
     if (res.error) return setLoginError(res.error);
     roomData = res.room;
@@ -1782,7 +1492,6 @@ document.getElementById('joinRoomBtn').addEventListener('click', () => {
   if (!name) return setLoginError('Please enter your name');
   if (!code || code.length !== 4) return setLoginError('Enter a 4-letter room code');
   myName = name;
-
   socket.emit('joinRoom', { name, code }, (res) => {
     if (res.error) return setLoginError(res.error);
     roomData = res.room;
@@ -1819,42 +1528,30 @@ document.getElementById('leaveRoomBtn').addEventListener('click', () => {
   socket.disconnect();
   socket.connect();
   showScreen('login');
-  roomData = null;
-  isHost   = false;
-  prevGameState = null;
-  currGameState = null;
+  roomData = null; isHost = false;
+  prevGameState = null; currGameState = null; localPlayer = null;
 });
 
 document.getElementById('endLeaveBtn').addEventListener('click', () => {
   socket.disconnect();
   socket.connect();
   showScreen('login');
-  roomData = null;
-  isHost   = false;
+  roomData = null; isHost = false;
 });
 
-document.getElementById('playAgainBtn').addEventListener('click', () => {
-  // Host starts next game from lobby (server returns to lobby after end)
-  // Button only shows after returnToLobby — so host just starts from lobby
-});
-
-// Settings buttons
 document.getElementById('mapOptions').addEventListener('click', (e) => {
   const btn = e.target.closest('.opt-btn');
   if (!btn || !isHost) return;
-  const mapIndex = parseInt(btn.dataset.map);
-  socket.emit('changeSettings', { mapIndex });
+  socket.emit('changeSettings', { mapIndex: parseInt(btn.dataset.map) });
 });
 
 document.getElementById('timeOptions').addEventListener('click', (e) => {
   const btn = e.target.closest('.opt-btn');
   if (!btn || !isHost) return;
-  const roundDuration = parseInt(btn.dataset.time);
-  socket.emit('changeSettings', { roundDuration });
+  socket.emit('changeSettings', { roundDuration: parseInt(btn.dataset.time) });
 });
 
-// Chat handlers
-function sendChat(inputId, messagesId) {
+function sendChat(inputId) {
   const input = document.getElementById(inputId);
   const msg   = input.value.trim();
   if (!msg) return;
@@ -1862,29 +1559,19 @@ function sendChat(inputId, messagesId) {
   input.value = '';
 }
 
-document.getElementById('lobbyChatSend').addEventListener('click', () => sendChat('lobbyChatInput', 'lobbyChatMessages'));
-document.getElementById('lobbyChatInput').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') sendChat('lobbyChatInput', 'lobbyChatMessages');
-});
+document.getElementById('lobbyChatSend').addEventListener('click', () => sendChat('lobbyChatInput'));
+document.getElementById('lobbyChatInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') sendChat('lobbyChatInput'); });
+document.getElementById('gameChatSend').addEventListener('click',  () => sendChat('gameChatInput'));
+document.getElementById('gameChatInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') sendChat('gameChatInput'); });
 
-document.getElementById('gameChatSend').addEventListener('click', () => sendChat('gameChatInput', 'inGameMsgs'));
-document.getElementById('gameChatInput').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') sendChat('gameChatInput', 'inGameMsgs');
-});
-
-// Prevent game input when typing in chat
+// Suppress game keys while typing in chat inputs
 ['gameChatInput', 'lobbyChatInput', 'nameInput', 'codeInput'].forEach(id => {
   const el = document.getElementById(id);
   if (!el) return;
-  el.addEventListener('focus',  () => Object.keys(keys).forEach(k => keys[k] = false));
+  el.addEventListener('focus',  () => { chatFocused = true;  Object.keys(keys).forEach(k => keys[k] = false); jumpEdge = false; });
+  el.addEventListener('blur',   () => { chatFocused = false; });
   el.addEventListener('keydown', e => e.stopPropagation());
 });
-
-// ══════════════════════════════════════════════════
-// BOOT — initSocket is called by the script loader above
-// after socket.io finishes loading from server or CDN.
-// Fallback: if socket.io was already loaded sync, init now.
-// ══════════════════════════════════════════════════
 
 if (typeof io !== 'undefined') initSocket();
 </script>
