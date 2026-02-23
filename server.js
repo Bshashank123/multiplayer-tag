@@ -351,9 +351,9 @@ function gameTick(room) {
   if (room.tick % TICK_RATE === 0) { room.timer--; if (room.timer <= 0) { endGame(room, 'timeout'); return; } }
 
   // Broadcast state
-  const state = { players:{}, timer:room.timer, itPlayerId:room.itPlayerId, tick:room.tick };
+  const players = {};
   for (const [id, p] of room.players) {
-    state.players[id] = {
+    players[id] = {
       id:p.id, name:p.name, color:p.color,
       x:Math.round(p.x*10)/10, y:Math.round(p.y*10)/10,
       vx:Math.round(p.vx), vy:Math.round(p.vy),
@@ -361,7 +361,13 @@ function gameTick(room) {
       facingRight:p.facingRight,
     };
   }
-  io.to(room.code).emit('gameState', state);
+  // Send each client their own socket ID as selfId.
+  // Fixes: if myId is ever stale, state.players[myId] returns undefined,
+  // localPlayer never seeds, and the player appears to jump every server tick.
+  for (const [id] of room.players) {
+    const sock = io.sockets.sockets.get(id);
+    if (sock) sock.emit('gameState', { players, timer:room.timer, itPlayerId:room.itPlayerId, tick:room.tick, selfId:id });
+  }
 }
 
 function endGame(room, reason) {
