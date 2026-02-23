@@ -672,6 +672,8 @@ function initSocket(){
   });
   socket.on('gameState',state=>{
     const now=performance.now();
+    // selfId: server tells us exactly which player we are — never rely on stale myId
+    if(state.selfId) myId = state.selfId;
     prevGameState=currGameState;currGameState=state;lastStateTime=now;
     for(const id in state.players){
       if(id===myId)continue;
