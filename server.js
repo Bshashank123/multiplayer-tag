@@ -1,13 +1,5 @@
 /**
- * MULTIPLAYER TAG — Authoritative Game Server (Fixed)
- *
- * Key fixes vs original:
- *  1. Bounce pads are NON-SOLID — only apply upward impulse, no position snap.
- *     Original code did `player.y = pad.y - PLAYER_H` which caused massive
- *     client-side prediction desyncs (client had no bounce logic at all).
- *  2. More platforms per map (richer, more traversable layouts).
- *  3. facingRight transmitted so client can flip the sprite correctly.
- *  4. Slightly tuned physics constants for snappier feel.
+ * MULTIPLAYER TAG — Authoritative Game Server
  */
 
 const express    = require('express');
@@ -35,13 +27,16 @@ const JUMP_SPEED   = -620;
 const MAX_FALL     = 1000;
 const PLAYER_W     = 28;
 const PLAYER_H     = 36;
-const MAP_W        = 1200;  // bigger map
-const MAP_H        = 700;   // bigger map
+const MAP_W        = 1200;
+const MAP_H        = 700;
 const TAG_DIST     = 46;
 const TAG_COOLDOWN = TICK_RATE * 2.5;
 const BOUNCE_POWER = -820;
 const TELEPORT_CD  = TICK_RATE * 1.5;
 const JUMP_BUFFER_TICKS = 6;
+// Friction factor per tick — must match client: Math.pow(0.80, dt*60)
+// At exactly 60Hz, Math.pow(0.80, 1) = 0.80, so this is correct
+const FRICTION = 0.80;
 
 const PLAYER_COLORS = ['#FF4D6D', '#4CC9F0', '#F9C74F', '#90BE6D'];
 const MAX_PLAYERS   = 4;
@@ -215,11 +210,16 @@ function aabb(ax,ay,aw,ah,bx,by,bw,bh) {
 function resolvePlatformCollisions(player, map) {
   const { platforms, bouncePads } = map;
 
-  // X axis
+  // ── X axis ──
+  // FIX: save prevY before moving X so the X-overlap test uses the
+  // pre-move Y. Without this, a player standing ON TOP of a platform
+  // triggers the X-collision and gets pushed sideways off it.
+  const prevY = player.y;
   player.x += player.vx * DT;
   player.x  = Math.max(0, Math.min(MAP_W - PLAYER_W, player.x));
   for (const plat of platforms) {
-    if (!aabb(player.x, player.y, PLAYER_W, PLAYER_H, plat.x, plat.y, plat.w, plat.h)) continue;
+    // Use prevY — same as client predictLocalPlayer
+    if (!aabb(player.x, prevY, PLAYER_W, PLAYER_H, plat.x, plat.y, plat.w, plat.h)) continue;
     const overL = (player.x + PLAYER_W) - plat.x;
     const overR = (plat.x + plat.w) - player.x;
     if (overL < overR) player.x = plat.x - PLAYER_W;
@@ -227,11 +227,14 @@ function resolvePlatformCollisions(player, map) {
     player.vx = 0;
   }
 
-  // Y axis
+  // ── Y axis ──
   player.vy       = Math.min(player.vy + GRAVITY * DT, MAX_FALL);
   player.y       += player.vy * DT;
   player.onGround = false;
 
+  // FIX: resolve only the shallowest overlap, not all platforms.
+  // Resolving every overlapping platform in sequence can cascade-push
+  // the player through one platform into the next (teleport-to-ground).
   let best = null, bestO = Infinity;
   for (const plat of platforms) {
     if (!aabb(player.x, player.y, PLAYER_W, PLAYER_H, plat.x, plat.y, plat.w, plat.h)) continue;
@@ -245,12 +248,9 @@ function resolvePlatformCollisions(player, map) {
     else                    { player.y = best.y + best.h;   player.vy = Math.abs(player.vy) * 0.2; }
   }
 
-  // ── Bounce pads: NON-SOLID trigger zone ──────────────────────────────────
-  // Only apply upward impulse when the player's feet enter the pad zone.
-  // NO position snapping — this is the core fix for the bounce desync bug.
+  // ── Bounce pads: NON-SOLID trigger zone ──
   for (const pad of bouncePads) {
-    if (player.vy < -100) continue; // already flying upward fast, skip
-    // Test the bottom 10px of the player against the pad
+    if (player.vy < -100) continue;
     if (aabb(player.x + 2, player.y + PLAYER_H - 10, PLAYER_W - 4, 14,
              pad.x, pad.y, pad.w, pad.h)) {
       player.vy       = BOUNCE_POWER;
@@ -315,9 +315,11 @@ function gameTick(room) {
 
   for (const [id, player] of room.players) {
     const inp = room.inputs.get(id) || {};
+
+    // FIX: friction uses same constant as client — flat FRICTION per tick at 60Hz
     if (inp.left && !inp.right)       { player.vx = -MOVE_SPEED; player.facingRight = false; }
     else if (inp.right && !inp.left)  { player.vx =  MOVE_SPEED; player.facingRight = true;  }
-    else { player.vx *= 0.80; if (Math.abs(player.vx) < 2) player.vx = 0; }
+    else { player.vx *= FRICTION; if (Math.abs(player.vx) < 2) player.vx = 0; }
 
     if (inp.jumpBuffer > 0 && player.onGround) {
       player.vy = JUMP_SPEED; player.onGround = false; inp.jumpBuffer = 0;
